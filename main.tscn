@@ -1,0 +1,179 @@
+[gd_scene format=3 uid="uid://dx2m3q7wptk8k"]
+
+[ext_resource type="PackedScene" uid="uid://cge8rov5exnfk" path="res://player.tscn" id="1_ig7tw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qqxei"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s5cd1"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
+size = Vector3(12, 0.4, 8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_oh36e"]
+size = Vector3(12, 0.4, 8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ig7tw"]
+size = Vector3(4, 0.4, 7.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0xm2m"]
+size = Vector3(4, 0.4, 7.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h2yge"]
+size = Vector3(12, 0.4, 8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1bvp3"]
+size = Vector3(12, 0.4, 8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s5cd1"]
+size = Vector3(12, 4, 0.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lquwl"]
+size = Vector3(12, 4, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7mycd"]
+size = Vector3(12, 4, 0.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_272bh"]
+size = Vector3(12, 4, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5vw27"]
+size = Vector3(0.4, 4, 7.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kek77"]
+size = Vector3(0.4, 4, 7.2)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_s5cd1"]
+height = 0.8
+radius = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qqxei"]
+top_radius = 1.0
+bottom_radius = 1.0
+height = 0.8
+
+[node name="Main" type="Node" unique_id=777041594]
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=47543564]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=182727794]
+shape = SubResource("BoxShape3D_qqxei")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=2079794629]
+mesh = SubResource("BoxMesh_s5cd1")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1848934631]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 25.58154, 0)
+shadow_enabled = true
+
+[node name="Rover" type="Node" parent="." unique_id=943627329]
+
+[node name="Floor" type="StaticBody3D" parent="Rover" unique_id=1945775457]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rover/Floor" unique_id=182079780]
+shape = SubResource("BoxShape3D_7dm0k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Rover/Floor" unique_id=889816450]
+mesh = SubResource("BoxMesh_oh36e")
+
+[node name="Ramp" type="StaticBody3D" parent="Rover" unique_id=190363262]
+transform = Transform3D(0.95274234, -0.30377936, 0, 0.30377936, 0.95274234, 0, 0, 0, 1, -6, 1.2, 0)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rover/Ramp" unique_id=2073566951]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.2, 0)
+shape = SubResource("BoxShape3D_ig7tw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Rover/Ramp" unique_id=335195879]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.2, 0)
+mesh = SubResource("BoxMesh_0xm2m")
+
+[node name="Roof" type="StaticBody3D" parent="Rover" unique_id=1494917869]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.4, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rover/Roof" unique_id=1034218789]
+shape = SubResource("BoxShape3D_h2yge")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Rover/Roof" unique_id=385772145]
+mesh = SubResource("BoxMesh_1bvp3")
+
+[node name="Wall1" type="StaticBody3D" parent="Rover" unique_id=927635164]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2, 3.8)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rover/Wall1" unique_id=503230560]
+shape = SubResource("BoxShape3D_s5cd1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Rover/Wall1" unique_id=744430285]
+mesh = SubResource("BoxMesh_lquwl")
+
+[node name="Wall2" type="StaticBody3D" parent="Rover" unique_id=794434033]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2, -3.8)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rover/Wall2" unique_id=1761555413]
+shape = SubResource("BoxShape3D_7mycd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Rover/Wall2" unique_id=967464943]
+mesh = SubResource("BoxMesh_272bh")
+
+[node name="Wall3" type="StaticBody3D" parent="Rover" unique_id=1656395082]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8, 3.2, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rover/Wall3" unique_id=1104465738]
+shape = SubResource("BoxShape3D_5vw27")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Rover/Wall3" unique_id=119114296]
+mesh = SubResource("BoxMesh_kek77")
+
+[node name="Wheel" type="StaticBody3D" parent="Rover" unique_id=765056757]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -4.4)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rover/Wheel" unique_id=978239584]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_s5cd1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Rover/Wheel" unique_id=460520756]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_qqxei")
+
+[node name="Wheel2" type="StaticBody3D" parent="Rover" unique_id=780917377]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, -4.4)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rover/Wheel2" unique_id=275225487]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_s5cd1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Rover/Wheel2" unique_id=1252064903]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_qqxei")
+
+[node name="Wheel3" type="StaticBody3D" parent="Rover" unique_id=757738313]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 4.4)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rover/Wheel3" unique_id=368426349]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_s5cd1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Rover/Wheel3" unique_id=150440477]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_qqxei")
+
+[node name="Wheel4" type="StaticBody3D" parent="Rover" unique_id=1903227978]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 4.4)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rover/Wheel4" unique_id=789259315]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_s5cd1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Rover/Wheel4" unique_id=1240270111]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_qqxei")
+
+[node name="Player" parent="." unique_id=1796299988 instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
